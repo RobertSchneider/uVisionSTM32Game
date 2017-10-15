@@ -1,0 +1,74 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE, READONLY
+    2 00000000                 THUMB
+    3 00000000         
+    4 00000000         save_context
+                               FUNCTION
+    5 00000000                 EXPORT           save_context
+    6 00000000 F3EF 8008       MRS              r0, msp
+    7 00000004 E920 0FF0       STMDB            r0!, {r4-r11}
+    8 00000008 F380 8808       MSR              msp, r0
+    9 0000000C ED2D 0A20       VPUSH.32         {s0-s31}
+   10 00000010 F3EF 8008       MRS              r0, msp
+   11 00000014 4770            BX               lr
+   12 00000016                 ENDP
+   13 00000016         
+   14 00000016         load_context
+                               FUNCTION
+   15 00000016                 EXPORT           load_context
+   16 00000016 F380 8808       MSR              msp, r0     ;
+   17 0000001A ECBD 0A20       VPOP.32          {s0-s31}
+   18 0000001E F3EF 8008       MRS              r0, msp
+   19 00000022 E8B0 0FF0       LDMFD            r0!, {r4-r11}
+   20 00000026 F380 8808       MSR              msp, r0
+   21 0000002A 4770            BX               lr
+   22 0000002C                 ENDP
+   23 0000002C         
+   24 0000002C                 END
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\bin
+\stm32f4xx\rtoscontext.d -o.\bin\stm32f4xx\rtoscontext.o -IC:\Keil\ARM\RV31\INC
+ -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\ST\STM32F4xx --predefine="__EVAL
+ SETA 1" --list=.\bin\stm32f4xx\rtoscontext.lst ..\EmbSysLib\Lib\Src\Hardware\M
+CU\STM32F4xx\Sys\Keil\RTOScontext.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file ..\EmbSysLib\Lib\Src\Hardware\MCU\STM32F4xx\Sys\Keil\RT
+OScontext.s
+   Uses
+      None
+Comment: .text unused
+load_context 00000016
+
+Symbol: load_context
+   Definitions
+      At line 14 in file ..\EmbSysLib\Lib\Src\Hardware\MCU\STM32F4xx\Sys\Keil\R
+TOScontext.s
+   Uses
+      At line 15 in file ..\EmbSysLib\Lib\Src\Hardware\MCU\STM32F4xx\Sys\Keil\R
+TOScontext.s
+Comment: load_context used once
+save_context 00000000
+
+Symbol: save_context
+   Definitions
+      At line 4 in file ..\EmbSysLib\Lib\Src\Hardware\MCU\STM32F4xx\Sys\Keil\RT
+OScontext.s
+   Uses
+      At line 5 in file ..\EmbSysLib\Lib\Src\Hardware\MCU\STM32F4xx\Sys\Keil\RT
+OScontext.s
+Comment: save_context used once
+3 symbols
+335 symbols in table

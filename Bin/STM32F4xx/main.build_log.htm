@@ -1,0 +1,80 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\robert\Documents\fh\STM32Proj\main_STM32F4xx.uvproj
+Project File Date:  10/15/2017
+
+<h2>Output:</h2>
+Rebuild target 'Target'
+creating preprocessor file for lib.cpp...
+compiling lib.cpp...
+creating preprocessor file for main.cpp...
+compiling main.cpp...
+creating preprocessor file for RTOS.cpp...
+compiling RTOS.cpp...
+assembling RTOScontext.s...
+assembling startup_stm32f4xx.s...
+creating preprocessor file for Controller.cpp...
+compiling Controller.cpp...
+linking...
+Program Size: Code=6632 RO-data=668 RW-data=152 ZI-data=33128  
+FromELF: creating hex file...
+".\Bin\STM32F4xx\main.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\robert\\Documents\\fh\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Load "C:\\Users\\robert\\Documents\\fh\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+4xx\main.axf: Error: L6218E: Undefined symbol Controller::update() (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+".\Bin\STM32F4xx\main.axf" - 1 Error(s), 3 Warning(s).
+Target not created
+rs
+".\Bin\STM32F4xx\main.axf" - 7 Error(s), 2 Warning(s).
+Target not created
+:update()" (declared at line 49 of "Src\Controller.h")
+  virtual void Controller::update(void)
+Src\Controller.cpp: 2 warnings, 3 errors
+".\Bin\STM32F4xx\main.axf" - 4 Error(s), 4 Warning(s).
+Target not created
+pe specifier
+        cDevDigital pinData(port, 0, 0, 0);
+Src\Controller.h(32): error:  #79: expected a type specifier
+        cDevDigital pinData(port, 0, 0, 0);
+Src\Controller.h(35): error:  #20: identifier "PortId" is undefined
+                Controller(PortId pID, BYTE pLatch, BYTE pCLK, BYTE pData) 
+Src\Controller.h(36): error:  #292: "port" is not a nonstatic data member or base class of class "Controller"
+                        : port(pID)
+Src\Controller.h(37): error:  #292: "pinLatch" is not a nonstatic data member or base class of class "Controller"
+                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
+Src\Controller.h(37): error:  #504-D: nonstandard form for taking the address of a member function
+                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
+Src\Controller.h(37): error:  #18: expected a ")"
+                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
+Src\Controller.h(38): error:  #292: "pinCLK" is not a nonstatic data member or base class of class "Controller"
+                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
+Src\Controller.h(38): error:  #504-D: nonstandard form for taking the address of a member function
+                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
+Src\Controller.h(38): error:  #18: expected a ")"
+                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
+Src\Controller.h(39): error:  #292: "pinData" is not a nonstatic data member or base class of class "Controller"
+                        , pinData(port, pData, cDevDigital::Out, 0);
+Src\Controller.h(39): error:  #504-D: nonstandard form for taking the address of a member function
+                        , pinData(port, pData, cDevDigital::Out, 0);
+Src\Controller.h(39): error:  #18: expected a ")"
+                        , pinData(port, pData, cDevDigital::Out, 0);
+Src\Controller.h(39): error:  #130: expected a "{"
+                        , pinData(port, pData, cDevDigital::Out, 0);
+Src\Controller.h(39): error:  #67: expected a "}"
+                        , pinData(port, pData, cDevDigital::Out, 0);
+Src\main.cpp: 0 warnings, 26 errors
+".\Bin\STM32F4xx\main.axf" - 26 Error(s), 0 Warning(s).
+Target not created
