@@ -4,7 +4,7 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\robert\Documents\fh\STM32Proj\main_STM32F4xx.uvproj
-Project File Date:  10/15/2017
+Project File Date:  10/17/2017
 
 <h2>Output:</h2>
 Rebuild target 'Target'
@@ -18,63 +18,97 @@ assembling RTOScontext.s...
 assembling startup_stm32f4xx.s...
 creating preprocessor file for Controller.cpp...
 compiling Controller.cpp...
+creating preprocessor file for VGA.cpp...
+compiling VGA.cpp...
+Src\VGA.cpp(179): warning:  #68-D: integer conversion resulted in a change of sign
+                                        Line = -1;
+Src\VGA.cpp: 1 warning, 0 errors
 linking...
-Program Size: Code=6632 RO-data=668 RW-data=152 ZI-data=33128  
+Program Size: Code=5872 RO-data=624 RW-data=148 ZI-data=33148  
 FromELF: creating hex file...
-".\Bin\STM32F4xx\main.axf" - 0 Error(s), 0 Warning(s).
+".\Bin\STM32F4xx\main.axf" - 0 Error(s), 1 Warning(s).
 Load "C:\\Users\\robert\\Documents\\fh\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Application running ...
-Load "C:\\Users\\robert\\Documents\\fh\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
+</pre>
+</body>
+</html>
+h\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Application running ...
-4xx\main.axf: Error: L6218E: Undefined symbol Controller::update() (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\Bin\STM32F4xx\main.axf" - 1 Error(s), 3 Warning(s).
+amming Done.
+Verify OK.
+Application running ...
+TM32F4xx\\main.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'C:\Users\robert\Documents\fh\STM32Proj\Bin\STM32F4xx\main.axf'
+uld not load file 'C:\Users\robert\Documents\fh\STM32Proj\Bin\STM32F4xx\main.axf'
+ude\stdlib.h(302): error:  #92: identifier-list parameters may only be used in a function definition
+  extern _ARMABI void *calloc(size_t /*nmemb*/, size_t /*size*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(316): error:  #92: identifier-list parameters may only be used in a function definition
+  extern _ARMABI void *malloc(size_t /*size*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(322): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI void *realloc(void * /*ptr*/, size_t /*size*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(339): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI int posix_memalign(void ** /*ret*/, size_t /*alignment*/, size_t /*size*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(339): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI int posix_memalign(void ** /*ret*/, size_t /*alignment*/, size_t /*size*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(471): error:  #20: identifier "size_t" is undefined
+                size_t /*nmemb*/, size_t /*size*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(471): error:  #20: identifier "size_t" is undefined
+                size_t /*nmemb*/, size_t /*size*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(505): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI_THROW void qsort(void * /*base*/, size_t /*nmemb*/, size_t /*size*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(505): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI_THROW void qsort(void * /*base*/, size_t /*nmemb*/, size_t /*size*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(678): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI int mblen(const char * /*s*/, size_t /*n*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(694): error:  #20: identifier "size_t" is undefined
+                     const char * __restrict /*s*/, size_t /*n*/);
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(734): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI size_t mbstowcs(wchar_t * __restrict /*pwcs*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(735): error:  #20: identifier "size_t" is undefined
+                        const char * __restrict /*s*/, size_t /*n*/) __attribute__((__nonnull__(2)));
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(752): error:  #20: identifier "size_t" is undefined
+  extern _ARMABI size_t wcstombs(char * __restrict /*s*/,
+C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h(753): error:  #20: identifier "size_t" is undefined
+                        const wchar_t * __restrict /*pwcs*/, size_t /*n*/) __attribute__((__nonnull__(2)));
+..\EmbSysLib\Lib\Src\Std/Std.h(27): error:  #77-D: this declaration has no storage class or type specifier
+  template <class T> inline T MAX( T x, T y )
+..\EmbSysLib\Lib\Src\Std/Std.h(27): error:  #65: expected a ";"
+  template <class T> inline T MAX( T x, T y )
+..\EmbSysLib\Lib\Src\Std/Std.h(70): warning:  #12-D: parsing restarts here after previous syntax error
+  const float PI = (float)3.1415926535897932384626433832795;
+..\EmbSysLib\Lib\Src\Hardware/MCU/STM32F4xx/MCU_STM32F4xx.h(47): error:  #325: inline specifier allowed on function declarations only
+  inline void* operator new[]    ( unsigned int  x ) { return malloc(x); }
+..\EmbSysLib\Lib\Src\Hardware/MCU/STM32F4xx/MCU_STM32F4xx.h(47): error:  #65: expected a ";"
+  inline void* operator new[]    ( unsigned int  x ) { return malloc(x); }
+..\EmbSysLib\Lib\Src\Hardware/MCU/STM32F4xx/Sys/PinConfig.h(56): warning:  #12-D: parsing restarts here after previous syntax error
+      } MODE;
+..\EmbSysLib\Lib\Src\Hardware/MCU/STM32F4xx/Sys/PinConfig.h(586): error:  #77-D: this declaration has no storage class or type specifier
+    public:
+..\EmbSysLib\Lib\Src\Hardware/MCU/STM32F4xx/Sys/PinConfig.h(586): error:  #65: expected a ";"
+    public:
+Src\main.cpp: 3 warnings, 30 errors
+creating preprocessor file for RTOS.cpp...
+compiling RTOS.cpp...
+assembling RTOScontext.s...
+assembling startup_stm32f4xx.s...
+creating preprocessor file for Controller.cpp...
+compiling Controller.cpp...
+creating preprocessor file for VGA.cpp...
+compiling VGA.cpp...
+Src\VGA.cpp(168): warning:  #68-D: integer conversion resulted in a change of sign
+                                        Line = -1;
+Src\VGA.cpp: 1 warning, 0 errors
+".\Bin\STM32F4xx\main.axf" - 30 Error(s), 4 Warning(s).
 Target not created
-rs
-".\Bin\STM32F4xx\main.axf" - 7 Error(s), 2 Warning(s).
-Target not created
-:update()" (declared at line 49 of "Src\Controller.h")
-  virtual void Controller::update(void)
-Src\Controller.cpp: 2 warnings, 3 errors
-".\Bin\STM32F4xx\main.axf" - 4 Error(s), 4 Warning(s).
-Target not created
-pe specifier
-        cDevDigital pinData(port, 0, 0, 0);
-Src\Controller.h(32): error:  #79: expected a type specifier
-        cDevDigital pinData(port, 0, 0, 0);
-Src\Controller.h(35): error:  #20: identifier "PortId" is undefined
-                Controller(PortId pID, BYTE pLatch, BYTE pCLK, BYTE pData) 
-Src\Controller.h(36): error:  #292: "port" is not a nonstatic data member or base class of class "Controller"
-                        : port(pID)
-Src\Controller.h(37): error:  #292: "pinLatch" is not a nonstatic data member or base class of class "Controller"
-                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
-Src\Controller.h(37): error:  #504-D: nonstandard form for taking the address of a member function
-                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
-Src\Controller.h(37): error:  #18: expected a ")"
-                        , pinLatch(port, pLatch, cDevDigital::Out, 0)
-Src\Controller.h(38): error:  #292: "pinCLK" is not a nonstatic data member or base class of class "Controller"
-                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
-Src\Controller.h(38): error:  #504-D: nonstandard form for taking the address of a member function
-                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
-Src\Controller.h(38): error:  #18: expected a ")"
-                        , pinCLK(port, pCLK, cDevDigital::Out, 0)
-Src\Controller.h(39): error:  #292: "pinData" is not a nonstatic data member or base class of class "Controller"
-                        , pinData(port, pData, cDevDigital::Out, 0);
-Src\Controller.h(39): error:  #504-D: nonstandard form for taking the address of a member function
-                        , pinData(port, pData, cDevDigital::Out, 0);
-Src\Controller.h(39): error:  #18: expected a ")"
-                        , pinData(port, pData, cDevDigital::Out, 0);
-Src\Controller.h(39): error:  #130: expected a "{"
-                        , pinData(port, pData, cDevDigital::Out, 0);
-Src\Controller.h(39): error:  #67: expected a "}"
-                        , pinData(port, pData, cDevDigital::Out, 0);
-Src\main.cpp: 0 warnings, 26 errors
-".\Bin\STM32F4xx\main.axf" - 26 Error(s), 0 Warning(s).
-Target not created
+Load "C:\\Users\\robert\\Documents\\fh\\STM32Proj\\Bin\\STM32F4xx\\main.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'C:\Users\robert\Documents\fh\STM32Proj\Bin\STM32F4xx\main.axf'

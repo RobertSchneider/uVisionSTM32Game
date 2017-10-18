@@ -360,7 +360,7 @@
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_KEIL,_HSE_BYPASS_OFF, STM32F407xx</Define>
+              <Define>_KEIL,_HSE_BYPASS_ON, STM32F407xx, _HSE_CLK=25000</Define>
               <Undefine></Undefine>
               <IncludePath>.\src;..\EmbSysLib\Lib\Src</IncludePath>
             </VariousControls>

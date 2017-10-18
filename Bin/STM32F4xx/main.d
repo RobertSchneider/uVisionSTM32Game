@@ -115,3 +115,4 @@
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Task/TaskHandler.h
 .\bin\stm32f4xx\main.o: Src\Controller.h
 .\bin\stm32f4xx\main.o: C:\Keil\ARM\ARMCC\bin\..\include\cstdint
+.\bin\stm32f4xx\main.o: Src\VGA.h

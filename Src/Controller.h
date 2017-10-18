@@ -52,24 +52,35 @@ class Controller : public cList::Item
 	cDevDigital 		pinClk;
 	cDevDigital 		pinData;
 	
-	cHwTimer_N 			timer;
-	
 	public:
 		
 		volatile uint16_t rawCtrl;
 		volatile enum Controller_Control currentCtrl;
+	
+
+void enable_IRQ(uint8_t irq, uint8_t preemptiveprio, int subprio)
+{
+	uint8_t tmpprio=0x00, tmppre=0x00,tmpsub=0x0F;
+	tmpprio = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700)) >> 0x08;
+	tmppre = (0x4 - tmpprio);
+	tmpsub = tmpsub >> tmpprio;
+	tmpprio = preemptiveprio << tmppre;
+	tmpprio |= (uint8_t)(subprio & tmpsub);
+	tmpprio = tmpprio << 0x04;
+	NVIC->IP[irq] = tmpprio;
+	NVIC->ISER[irq >> 0x05] = (uint32_t)0x01 << (irq & (uint8_t)0x1F);
+}
 	
 		Controller(cHwPort_N::PortId pID, BYTE pLatch, BYTE pClk, BYTE pData) 
 			: port(pID)
 			, pinLatch(port, pLatch, cDevDigital::Out, 0)
 			, pinClk(port, pClk, cDevDigital::Out, 0)
 			, pinData(port, pData, cDevDigital::In, 0)
-			, timer ( cHwTimer_N::TIM_2,   10L/*us*/ )
 			, rawCtrl(0)
 	{
 		state.data = 0;
 		
-		timer.add(this);
+		enable_IRQ(TIM2_IRQn, 1, 7);
 	}
 	
 	virtual void update(void);

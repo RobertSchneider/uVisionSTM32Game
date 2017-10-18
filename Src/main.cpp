@@ -1,17 +1,12 @@
 //*******************************************************************
+#define PLL_M 8
+
 #include "lib.h"
 #include "Controller.h"
+#include "VGA.h"
 
 cHwPinConfig::MAP cHwPinConfig::table[] = 
 {
-  // Timer (PWM)
-  TIM2_CH1_PA_0,
-  TIM2_CH2_PA_1,
-  TIM2_CH3_PA_2,
-  TIM2_CH4_PA_3,
-  TIM4_CH2_PD_13,
-  TIM4_CH3_PD_14,
-  TIM4_CH4_PD_15,
 	
 	END_OF_TABLE
 };
@@ -22,11 +17,37 @@ cDevDigital led(portD, 15, cDevDigital::Out, 0);
 Controller controller1(cHwPort_N::PD, 6, 7, 5);
 Controller controller2(cHwPort_N::PD, 1, 3, 0);
 
+VGA vga2(cHwPort_N::PE);
+
+extern "C" {
+	
+	void TIM2_IRQHandler(void)
+	{
+		TIM2->CR1&=~TIM_CR1_CEN;
+		
+		//controller1.update();
+		//controller2.update();
+	}
+}
+
 //*******************************************************************
 int main(void)
 {
+	
+	vga2.init();
+	
+	
+	/*RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+	TIM2->ARR  = 500-1;
+	TIM2->CR1  = TIM_CR1_CEN;  // counter enable
+  TIM2->DIER = TIM_DIER_UIE; // update interrupt enable
+  //TIM2->EGR  = TIM_EGR_UG;   // re-initialize timer
+  TIM2->PSC  = 84-1;*/
+	
 	while(1)
 	{
+		controller1.update();
+		controller2.update();
 		led.set(controller2.getState().buttons.A);
 	}
 }

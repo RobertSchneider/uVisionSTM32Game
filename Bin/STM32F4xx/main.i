@@ -1,5 +1,7 @@
 #line 1 "Src\\main.cpp"
 
+
+
 #line 1 "..\\EmbSysLib\\Lib\\Src\\lib.h"
 
 
@@ -20707,7 +20709,7 @@ class cTaskHandler : public cList::Item
 
 #line 41 "..\\EmbSysLib\\Lib\\Src\\lib.h"
 
-#line 3 "Src\\main.cpp"
+#line 5 "Src\\main.cpp"
 #line 1 "Src\\Controller.h"
 
 
@@ -20787,24 +20789,35 @@ class Controller : public cList::Item
 	cDevDigital 		pinClk;
 	cDevDigital 		pinData;
 	
-	cHwTimer_N 			timer;
-	
 	public:
 		
 		volatile uint16_t rawCtrl;
 		volatile enum Controller_Control currentCtrl;
+	
+
+void enable_IRQ(uint8_t irq, uint8_t preemptiveprio, int subprio)
+{
+	uint8_t tmpprio=0x00, tmppre=0x00,tmpsub=0x0F;
+	tmpprio = (0x700 - ((((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->AIRCR) & (uint32_t)0x700)) >> 0x08;
+	tmppre = (0x4 - tmpprio);
+	tmpsub = tmpsub >> tmpprio;
+	tmpprio = preemptiveprio << tmppre;
+	tmpprio |= (uint8_t)(subprio & tmpsub);
+	tmpprio = tmpprio << 0x04;
+	((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->IP[irq] = tmpprio;
+	((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->ISER[irq >> 0x05] = (uint32_t)0x01 << (irq & (uint8_t)0x1F);
+}
 	
 		Controller(cHwPort_N::PortId pID, BYTE pLatch, BYTE pClk, BYTE pData) 
 			: port(pID)
 			, pinLatch(port, pLatch, cDevDigital::Out, 0)
 			, pinClk(port, pClk, cDevDigital::Out, 0)
 			, pinData(port, pData, cDevDigital::In, 0)
-			, timer ( cHwTimer_N::TIM_2,   10L  )
 			, rawCtrl(0)
 	{
 		state.data = 0;
 		
-		timer.add(this);
+		enable_IRQ(TIM2_IRQn, 1, 7);
 	}
 	
 	virtual void update(void);
@@ -20815,18 +20828,43 @@ class Controller : public cList::Item
 	}
 };
 
-#line 4 "Src\\main.cpp"
+#line 6 "Src\\main.cpp"
+#line 1 "Src\\VGA.h"
+
+
+
+#line 5 "Src\\VGA.h"
+#line 6 "Src\\VGA.h"
+
+class VGA : public cList::Item
+{
+
+	public:
+		cHwPort_N				dacPort;
+		uint32_t 					dacPinMask;
+
+		cDevDigital 		pinHSync;
+		cDevDigital 		pinVSync;
+	
+		VGA(cHwPort_N::PortId portID)
+			: dacPort(portID)
+			, dacPinMask(((1<<8) | (1<<9) | (1<<10) | (1<<11) | (1<<12) | (1<<13) | (1<<14) | (1<<15) ))
+			, pinHSync(dacPort, 6, cDevDigital::Out, 0)
+			, pinVSync(dacPort, 7, cDevDigital::Out, 0)
+		{
+			
+			
+		}	
+		
+		void init(void);
+	
+		virtual void update(void);
+};
+
+#line 7 "Src\\main.cpp"
 
 cHwPinConfig::MAP cHwPinConfig::table[] = 
 {
-  
-  TIM2_CH1_PA_0,
-  TIM2_CH2_PA_1,
-  TIM2_CH3_PA_2,
-  TIM2_CH4_PA_3,
-  TIM4_CH2_PD_13,
-  TIM4_CH3_PD_14,
-  TIM4_CH4_PD_15,
 	
 	END_OF_TABLE
 };
@@ -20837,11 +20875,37 @@ cDevDigital led(portD, 15, cDevDigital::Out, 0);
 Controller controller1(cHwPort_N::PD, 6, 7, 5);
 Controller controller2(cHwPort_N::PD, 1, 3, 0);
 
+VGA vga2(cHwPort_N::PE);
+
+extern "C" {
+	
+	void TIM2_IRQHandler(void)
+	{
+		((TIM_TypeDef *) (((uint32_t)0x40000000) + 0x0000))->CR1&=~((uint32_t)0x0001);
+		
+		
+		
+	}
+}
+
 
 int main(void)
 {
+	
+	vga2.init();
+	
+	
+	
+
+
+
+
+ 
+	
 	while(1)
 	{
+		controller1.update();
+		controller2.update();
 		led.set(controller2.getState().buttons.A);
 	}
 }
