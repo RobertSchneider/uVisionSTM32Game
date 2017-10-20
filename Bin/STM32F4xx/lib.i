@@ -16136,6 +16136,79 @@ class cHwDisp_SPFD5408Bspi : public cHwDisplayGraphic
 }; 
 
 #line 29 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Framebuffer.h"
+
+
+
+
+
+ 
+
+
+
+
+
+
+#line 14 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Framebuffer.h"
+
+
+
+
+
+
+
+
+
+
+ 
+class cHwDisp_Framebuffer : public cHwDisplayGraphic
+{
+  public:
+     
+		uint8_t *buffer;
+	
+    
+    
+    cHwDisp_Framebuffer( uint8_t *framebuffer, cHwDisplayFont font, BYTE zoom = 1 );
+
+    virtual void clear( void );
+
+    
+    virtual void setArea( WORD x, 
+                          WORD y,
+                          WORD w,
+                          WORD h );
+
+   
+    virtual void setPixel( WORD color,
+                           WORD x, 
+                           WORD y );
+
+    
+    virtual void setPixel( WORD color );
+		
+		virtual void resetArea();
+
+  private:
+		
+		WORD pX;
+		WORD pY;
+		
+		
+		WORD pAX;
+		WORD pAY;
+		WORD pAW;
+		WORD pAH;
+    
+    
+    
+    
+    static const WORD WIDTH  = 320;
+    static const WORD HEIGHT = 200;
+	       
+}; 
+
+#line 30 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_DIP204.h"
 
 
@@ -16215,7 +16288,7 @@ class cHwDisp_DIP204 : public cHwDisplay
             
 }; 
 
-#line 30 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 31 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_DIP204spi.h"
 
 
@@ -16287,7 +16360,7 @@ class cHwDisp_DIP204spi : public cHwDisplay
 
 }; 
 
-#line 31 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 32 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_ILI9341spi.h"
 
 
@@ -16382,7 +16455,7 @@ class cHwDisp_ILI9341spi : public cHwDisplayGraphic
    
 }; 
 
-#line 32 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 33 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Terminal.h"
 
 
@@ -16444,7 +16517,7 @@ class cHwDisp_Terminal : public cHwDisplay
 	       
 }; 
 
-#line 33 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 34 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/EEPROM_24C256.h"
 
 
@@ -16509,7 +16582,7 @@ public:
 
 }; 
 
-#line 34 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 35 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Ethernet_ENC28J60.h"
 
 
@@ -16570,7 +16643,7 @@ public:
 };
 
 
-#line 35 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 36 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Port_PCF8574.h"
 
 
@@ -16654,7 +16727,7 @@ class cHwPort_PCF8574 : public cHwPort , cList::Item
 
 }; 
 
-#line 36 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 37 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Port_Terminal.h"
 
 
@@ -16777,7 +16850,7 @@ class cHwPort_Terminal : public cHwPort , cList::Item
 
 }; 
 
-#line 37 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 38 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RAM_PCF8583.h"
 
 
@@ -16831,7 +16904,7 @@ class cHwRAM_PCF8583 : public cHwMemory
 
 }; 
 
-#line 38 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 39 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RS485_MAX48x.h"
 
 
@@ -16897,7 +16970,7 @@ template <class T> class cHwRS485_MAX48x : public T
 
 }; 
 
-#line 39 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 40 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RTC_PCF8583.h"
 
 
@@ -16957,7 +17030,7 @@ class cHwRTC_PCF8583 : public cHwRTC
 
 }; 
 
-#line 40 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 41 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Touch_ADS7846.h"
 
 
@@ -17095,7 +17168,7 @@ class cHwTouch_ADS7846 : public cHwTouch
 
 }; 
 
-#line 41 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 42 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Touch_STMPE811i2c.h"
 
 
@@ -17149,7 +17222,7 @@ class cHwTouch_STMPE811i2c : public cHwTouch
 
 }; 
 
-#line 42 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 43 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/UART_IP.h"
 
 
@@ -18235,7 +18308,7 @@ public:
     typename T::Socket socket;
 };
 
-#line 43 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 44 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Sensor/Mag_LSM303.h"
 
@@ -18289,7 +18362,7 @@ class cHwSensMag_LSM303
 
 }; 
 
-#line 45 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 46 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Sensor/Gyro_L3GD20.h"
 
 
@@ -18344,7 +18417,7 @@ class cHwSensGyro_L3GD20
 
 }; 
 
-#line 46 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 47 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Sensor/Acc_LSM303.h"
 
 
@@ -18397,19 +18470,18 @@ class cHwSensAcc_LSM303
 
 }; 
 
-#line 47 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 48 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 
 
 
 
-#line 52 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 53 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 54 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 55 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 56 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 57 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
-#line 59 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
-#line 61 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 58 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 60 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 62 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 63 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 64 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
@@ -18418,6 +18490,7 @@ class cHwSensAcc_LSM303
 #line 67 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 68 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 69 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
+#line 70 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.h"
 #line 20 "..\\EmbSysLib\\Lib\\Src\\lib.h"
 
 
@@ -26964,12 +27037,12 @@ extern "C" {
 }
 
 
-
-
-
-
-
- 
+extern "C" {
+  void TIM2_IRQHandler(void)
+  {
+    cHwTimer_N::timerPtr_2->isr_N();
+  }
+}
 
 
 extern "C" {
@@ -29037,6 +29110,99 @@ __inline void cHwDisp_SPFD5408Bspi::writeDat( WORD dat )
 
 
 #line 50 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Framebuffer.cpp"
+
+
+
+
+
+ 
+
+
+#line 10 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Framebuffer.cpp"
+
+
+
+
+
+
+
+
+cHwDisp_Framebuffer::cHwDisp_Framebuffer( uint8_t *framebuffer,
+                                        cHwDisplayFont        fntIn, 
+                                        BYTE                  zoomIn )
+
+: cHwDisplayGraphic( fntIn, zoomIn ), 
+  buffer( framebuffer )
+
+{ 
+	resetArea();
+	
+	clear();
+}
+
+
+void cHwDisp_Framebuffer::clear( void )
+{
+  memset(buffer, BackColor, WIDTH*HEIGHT);
+}
+
+
+void cHwDisp_Framebuffer::setArea( WORD x, 
+                                  WORD y,
+                                  WORD w,
+                                  WORD h )
+{
+	pAX = x;
+	pAY = y;
+	pAW = w;
+	pAH = h;
+	
+	pX = pAX;
+	pY = pAY;
+}
+
+
+void cHwDisp_Framebuffer::setPixel( WORD color, 
+                                   WORD x, 
+                                   WORD y ) 
+{
+  *(buffer + y * WIDTH + x) = (uint8_t)color;
+}
+
+
+void cHwDisp_Framebuffer::resetArea() 
+{
+	pX = 0;
+	pY = 0;
+	
+	pAX = 0;
+	pAY = 0;
+	pAW = WIDTH;
+	pAH = HEIGHT;
+}
+
+
+void cHwDisp_Framebuffer::setPixel( WORD color ) 
+{
+	setPixel(color, pX, pY);
+	
+	pX++;
+	if (pX >= pAX + pAW)
+	{
+		pX = pAX;
+		pY++;
+		
+		if (pY >= pAY + pAH)
+		{
+			pY = pAY;
+		}
+	}
+  
+}
+
+
+#line 51 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Disp_Terminal.cpp"
 
 
@@ -29108,7 +29274,7 @@ void cHwDisp_Terminal::sendESC( const char *seq )
 }
        
 
-#line 51 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 52 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/DAC_MAX5308.cpp"
 
 
@@ -29147,7 +29313,7 @@ void cHwDAC_MAX5308::set( WORD value, BYTE ch )
 }
 
 
-#line 52 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 53 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/DAC_MAX521.cpp"
 
 
@@ -29178,7 +29344,7 @@ inline void cHwDAC_MAX521::set( WORD value, BYTE ch )
 }
 
 
-#line 53 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 54 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/DAC_MCP4441.cpp"
 
 
@@ -29228,7 +29394,7 @@ void cHwDAC_MCP4441::set( WORD value, BYTE ch )
 }
 
 
-#line 54 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 55 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/DAC_MCP4922.cpp"
 
 
@@ -29269,7 +29435,7 @@ void cHwDAC_MCP4922::set( WORD value, BYTE ch )
 }
 
 
-#line 55 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 56 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/EEPROM_24C256.cpp"
 
 
@@ -29334,7 +29500,7 @@ BYTE cHwEEPROM_24C256::readByte( DWORD addr )
 }
 
 
-#line 56 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 57 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Ethernet_ENC28J60.cpp"
 
 
@@ -29806,7 +29972,7 @@ void cHwEthernet_Enc28j60::create( const cNetAddr<6> destAddr,
   eth->type            = type;
 }
 
-#line 58 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 59 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Port_PCF8574.cpp"
 
 
@@ -29937,7 +30103,7 @@ MTYPE cHwPort_PCF8574::get(void)
 }
 
 
-#line 60 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 61 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Port_Terminal.cpp"
 
 
@@ -30131,7 +30297,7 @@ void cHwPort_Terminal::update( void )
 }
 
 
-#line 61 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 62 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RAM_PCF8583.cpp"
 
 
@@ -30166,7 +30332,7 @@ BYTE cHwRAM_PCF8583::readByte( DWORD addr )
 }
 
 
-#line 62 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 63 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RS485_MAX48x.cpp"
 
 
@@ -30184,7 +30350,7 @@ BYTE cHwRAM_PCF8583::readByte( DWORD addr )
 
 
 
-#line 63 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 64 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/RTC_PCF8583.cpp"
 
 
@@ -30267,7 +30433,7 @@ inline BYTE cHwRTC_PCF8583::Dual_2_BCD( BYTE dual )
 }
 
 
-#line 64 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 65 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Touch_ADS7846.cpp"
 
 
@@ -30323,7 +30489,7 @@ int cHwTouch_ADS7846::readData( BYTE ch )
 }
 
 
-#line 65 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 66 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Touch_STMPE811i2c.cpp"
 
 
@@ -30463,7 +30629,7 @@ void cHwTouch_STMPE811i2c::update( void )
 }
 
 
-#line 66 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 67 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/UART_IP.cpp"
 
 
@@ -30485,7 +30651,7 @@ void cHwTouch_STMPE811i2c::update( void )
 
 
 
-#line 67 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 68 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 
 
 
@@ -30551,7 +30717,7 @@ inline WORD cHwSensMag_LSM303::getZ( void )
 }
 
 
-#line 72 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 73 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Sensor/Acc_LSM303.cpp"
 
 
@@ -30640,7 +30806,7 @@ inline WORD cHwSensAcc_LSM303::getZ( void )
 }
 
 
-#line 73 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 74 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 #line 1 "..\\EmbSysLib\\Lib\\Src\\Hardware/Peripheral/Sensor/Gyro_L3GD20.cpp"
 
 
@@ -30701,7 +30867,7 @@ inline WORD cHwSensGyro_L3GD20::getZ( void )
 }
 
 
-#line 74 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
+#line 75 "..\\EmbSysLib\\Lib\\Src\\Hardware/Hardware.cpp"
 
 
 #line 19 "..\\EmbSysLib\\Lib\\Src\\lib.cpp"

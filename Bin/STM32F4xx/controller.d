@@ -65,6 +65,7 @@
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Common/Display.h
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayGraphic.h
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayFont.h
+.\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Framebuffer.h
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204.h
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204spi.h
 .\bin\stm32f4xx\controller.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_ILI9341spi.h

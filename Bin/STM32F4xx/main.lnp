@@ -6,6 +6,7 @@
 ".\bin\stm32f4xx\startup_stm32f4xx.o"
 ".\bin\stm32f4xx\controller.o"
 ".\bin\stm32f4xx\vga.o"
+".\bin\stm32f4xx\dma_stm32f04.o"
 --strict --scatter ".\Bin\STM32F4xx\main.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

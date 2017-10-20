@@ -3,30 +3,31 @@
 
 #include <cstdint>
 #include "lib.h"
+#include "hardware/Common/Font/Font_8x12.h"
 
-class VGA : public cList::Item
+#include "DMA.h"
+
+class VGA
 {
-
 	public:
-		cHwPort_N				dacPort;
-		uint32_t 					dacPinMask;
-
 		cDevDigital 		pinHSync;
 		cDevDigital 		pinVSync;
 	
-		VGA(cHwPort_N::PortId portID)
-			: dacPort(portID)
-			, dacPinMask(((1<<8) | (1<<9) | (1<<10) | (1<<11) | (1<<12) | (1<<13) | (1<<14) | (1<<15) ))
-			, pinHSync(dacPort, 6, cDevDigital::Out, 0)
-			, pinVSync(dacPort, 7, cDevDigital::Out, 0)
+		cHwDisp_Framebuffer disp;
+	
+		DMA *vgaDMA;
+	
+		VGA(cHwPort_N *port, DMA *dma)
+			: pinHSync(*port, 6, cDevDigital::Out, 0)
+			, pinVSync(*port, 7, cDevDigital::Out, 0)
+			, disp((uint8_t*)0x20010000,  fontFont_8x12)
 		{
-			//RCC->APB2ENR |= 0x004000;
-			//RCC->APB1ENR |= 0x400000;
+			vgaDMA = dma;
 		}	
 		
 		void init(void);
-	
-		virtual void update(void);
+		
+		void puts(char *s, int len);
 };
 
 #endif

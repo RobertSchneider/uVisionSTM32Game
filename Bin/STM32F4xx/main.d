@@ -62,6 +62,7 @@
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Common/Display.h
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayGraphic.h
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayFont.h
+.\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Framebuffer.h
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204.h
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204spi.h
 .\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_ILI9341spi.h
@@ -116,3 +117,6 @@
 .\bin\stm32f4xx\main.o: Src\Controller.h
 .\bin\stm32f4xx\main.o: C:\Keil\ARM\ARMCC\bin\..\include\cstdint
 .\bin\stm32f4xx\main.o: Src\VGA.h
+.\bin\stm32f4xx\main.o: ..\EmbSysLib\Lib\Src\hardware/Common/Font/Font_8x12.h
+.\bin\stm32f4xx\main.o: Src\DMA.h
+.\bin\stm32f4xx\main.o: Src\DMA_STM32F04.h

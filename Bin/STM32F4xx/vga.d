@@ -65,6 +65,7 @@
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Common/Display.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayGraphic.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayFont.h
+.\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Framebuffer.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204spi.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_ILI9341spi.h
@@ -116,3 +117,6 @@
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Device/Control/devControlEncoderRotaryKnob.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Device/Control/devControlPointer.h
 .\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\Task/TaskHandler.h
+.\bin\stm32f4xx\vga.o: ..\EmbSysLib\Lib\Src\hardware/Common/Font/Font_8x12.h
+.\bin\stm32f4xx\vga.o: Src\DMA.h
+.\bin\stm32f4xx\vga.o: Src\InterruptManager.h

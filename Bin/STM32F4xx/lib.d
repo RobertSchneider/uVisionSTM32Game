@@ -62,6 +62,7 @@
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Common/Display.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayGraphic.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Common/DisplayFont.h
+.\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Framebuffer.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204spi.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_ILI9341spi.h
@@ -172,6 +173,7 @@
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_DIP204spi.h
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_ILI9341spi.cpp
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_SPFD5408Bspi.cpp
+.\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Framebuffer.cpp
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/Disp_Terminal.cpp
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/DAC_MAX5308.cpp
 .\bin\stm32f4xx\lib.o: ..\EmbSysLib\Lib\Src\Hardware/Peripheral/DAC_MAX521.cpp

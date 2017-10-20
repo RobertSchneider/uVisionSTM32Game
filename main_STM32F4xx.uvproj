@@ -450,6 +450,26 @@
               <FileType>8</FileType>
               <FilePath>.\Src\VGA.cpp</FilePath>
             </File>
+            <File>
+              <FileName>DMA_STM32F04.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\DMA_STM32F04.h</FilePath>
+            </File>
+            <File>
+              <FileName>DMA_STM32F04.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\DMA_STM32F04.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\DMA.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterruptManager.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\InterruptManager.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
